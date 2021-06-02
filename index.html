@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="2809CAL.ico">
+    <title>Calculadora</title>
+
+    <style type="text/css">
+        body {
+            background-color: #aaa7a7;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        form fieldset {
+            margin: 10px auto 10px auto;
+            width: 13%;
+            border: solid #161616 08px;
+            padding: 1%;
+            border-radius: 10px;
+        }
+
+        form legend {
+            padding: 1px 1px;
+            margin-top: 18px;
+            margin-left: 20px;
+            border: solid #161616 2px;
+            font-weight: bold;
+            background-color: #f5f5f5;
+            border-radius: 7px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        form label {
+            display: block;
+            font-size: 18px;
+        }
+
+        form input {
+            width: 100%;
+            border: solid #161616 1px;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+
+        form input.botao {
+            display: inline-block;
+            background-color: #161616;
+            border-radius: 7px;
+            border: solid #eee8e8 1px;
+            font-size: 13px;
+            font-weight: bold;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            padding: 1px 1px;
+            cursor: pointer;
+            color: #eee8e8;
+        }
+
+        form input.botao:hover {
+            background-color: #cecaca;
+            color: #161616;
+            border: solid #161616 1px;
+        }
+
+        form select {
+            font-size: 15px;
+            font-weight: bold;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            
+        }
+        footer {
+            text-align: center;
+        }
+    </style>
+
+    <script type="text/javascript">
+        function calcular(oper) {
+            var valor1 = document.calcform.valor1.value;
+            var valor2 = document.calcform.valor2.value;
+
+            if (oper == "somar") {
+                var res = parseInt(valor1) + parseInt(valor2);
+            } else {
+                if (oper == "subtrair") {
+                    var res = valor1 - valor2;
+                } else {
+                    if (oper == "multiplicar") {
+                        var res = valor1 * valor2;
+                    } else {
+                        var res = valor1 / valor2;
+                    }
+                }
+            }
+
+            document.calcform.res.value = res;
+        }
+    </script>
+
+</head>
+
+<body>
+    <form name="calcform" method="post" action="">
+        <fieldset>
+            <legend>CALCULADORA</legend>
+
+            <label for="valor1">Digite o valor <strong>1</strong>:</label>
+            <input type="text" name="valor1" id="valor1" />
+
+            <label for="valor2">Digite o valor <strong>2</strong>:</label>
+            <input type="text" name="valor2" id="valor2" />
+
+            <label for="oper">Selecione a Operação:</label>
+            <select name="oper" id="oper">
+                <option value="somar">Somar</option>
+                <option value="subtrair">Subtrair</option>
+                <option value="multiplicar">Multiplifcar</option>
+                <option value="dividir">Dividir</option>
+            </select>
+            <p></p>
+            <input type="button" value="CALCULAR" class="botao" onClick="calcular(document.calcform.oper.value)" />
+            <label for="res">Resultado:</label>
+            <input type="text" name="res" id="res" />
+        </fieldset>
+    </form>
+    <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+            <strong>Atividade 01/06/2021</strong> <a href="https://github.com/jhonathanAdriano">Jhonathan C. Adriano</a>. 
+          </p>
+        </div>
+      </footer>
+</body>
+
+</html>
